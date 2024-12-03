@@ -3,19 +3,16 @@ module github.com/openshift/sandboxed-containers-operator
 go 1.16
 
 require (
-	github.com/coreos/ignition/v2 v2.9.0
-	github.com/go-logr/logr v0.4.0
-	github.com/onsi/ginkgo v1.16.4
-	github.com/onsi/gomega v1.13.0
+	github.com/coreos/ignition/v2 v2.20.0
+	github.com/go-logr/logr v1.4.1
+	github.com/onsi/ginkgo v1.16.5
+	github.com/onsi/gomega v1.31.1
 	github.com/openshift/machine-config-operator v0.0.1-0.20200918082730-c08c048584ef
-	github.com/vincent-petithory/dataurl v0.0.0-20191104211930-d1553a71de50 // indirect
-	k8s.io/api v0.21.2
-	k8s.io/apimachinery v0.21.2
-	k8s.io/client-go v0.21.2
-	k8s.io/klog v0.2.0 // indirect
-	k8s.io/kubernetes v0.21.2
+	k8s.io/api v0.26.5
+	k8s.io/apimachinery v0.26.5
+	k8s.io/client-go v0.26.5
+	k8s.io/kubernetes v1.13.0
 	sigs.k8s.io/controller-runtime v0.9.2
-	sigs.k8s.io/controller-tools v0.6.1 // indirect
 )
 
 replace (
