@@ -100,10 +100,10 @@ github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5P
 github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMnBNeIyt5eFwwo7qiLfzFZmjNmxjkiQlU=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
-github.com/confidential-containers/cloud-api-adaptor/src/cloud-providers v0.9.0 h1:us7+lXLNYT2VONdd4DFMbA5XSPS0hRhtpBH7MdCsAA8=
-github.com/confidential-containers/cloud-api-adaptor/src/cloud-providers v0.9.0/go.mod h1:7Yxc6fhrLQW5nvDH5ePHouqwCNNIK7GJR5LrHiFZqhg=
-github.com/confidential-containers/cloud-api-adaptor/src/peerpod-ctrl v0.9.0 h1:IEKJAdZtXsKyrWuxXyeOLIXIAyb+JgHxhRoLeeLnzIQ=
-github.com/confidential-containers/cloud-api-adaptor/src/peerpod-ctrl v0.9.0/go.mod h1:79OIEUk6RI6URAiEicZVrmhGHJA7LhuBvRxBQzOHS5A=
+github.com/confidential-containers/cloud-api-adaptor/src/cloud-providers v0.11.0 h1:Vn9BZv9+XEVnn6ArutPeLaZ7hhD7PFEEUhVbq/eH5to=
+github.com/confidential-containers/cloud-api-adaptor/src/cloud-providers v0.11.0/go.mod h1:ppdqLs1ZMc78z+Q8wdV3MVlyTfScyJpBpNbUbnwnSV4=
+github.com/confidential-containers/cloud-api-adaptor/src/peerpod-ctrl v0.11.0 h1:snk7V85HR34TsQpmdGbnD8Yj40BTu8YKEazpPmS9EIk=
+github.com/confidential-containers/cloud-api-adaptor/src/peerpod-ctrl v0.11.0/go.mod h1:SoMp1VlHZKzK6gMuigo2N1Jg1bpw1M0B0GXoJR1RWQY=
 github.com/confidential-containers/cloud-api-adaptor/src/peerpodconfig-ctrl v0.9.0 h1:gXSLIfj459Uez/z0Whpsck09ZTuqBlfKGwPzpEj1HfI=
 github.com/confidential-containers/cloud-api-adaptor/src/peerpodconfig-ctrl v0.9.0/go.mod h1:nosM1LC4W8IKeUpb6HtfXTE8bBj9JgeZ2SP0EIHf3T8=
 github.com/coreos/go-json v0.0.0-20211020211907-c63f628265de/go.mod h1:lryFBkhadOfv8Jue2Vr/f/Yviw8h1DQPQojbXqEChY0=

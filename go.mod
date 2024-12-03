@@ -3,7 +3,7 @@ module github.com/openshift/sandboxed-containers-operator
 go 1.22.7
 
 require (
-	github.com/confidential-containers/cloud-api-adaptor/src/peerpod-ctrl v0.9.0
+	github.com/confidential-containers/cloud-api-adaptor/src/peerpod-ctrl v0.11.0
 	github.com/confidential-containers/cloud-api-adaptor/src/peerpodconfig-ctrl v0.9.0
 	github.com/coreos/ignition/v2 v2.14.0
 	github.com/ghodss/yaml v1.0.0
@@ -48,7 +48,7 @@ require (
 	github.com/aws/smithy-go v1.17.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
-	github.com/confidential-containers/cloud-api-adaptor/src/cloud-providers v0.9.0 // indirect
+	github.com/confidential-containers/cloud-api-adaptor/src/cloud-providers v0.11.0 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
 	github.com/coreos/vcontext v0.0.0-20211021162308-f1dbbca7bef4 // indirect
