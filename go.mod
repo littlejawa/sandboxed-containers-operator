@@ -4,18 +4,18 @@ go 1.16
 
 require (
 	github.com/coreos/ignition/v2 v2.9.0
-	github.com/go-logr/logr v0.4.0
+	github.com/go-logr/logr v1.4.2
+	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/onsi/ginkgo v1.16.4
 	github.com/onsi/gomega v1.13.0
 	github.com/openshift/machine-config-operator v0.0.1-0.20200918082730-c08c048584ef
 	github.com/vincent-petithory/dataurl v0.0.0-20191104211930-d1553a71de50 // indirect
+	golang.org/x/tools v0.1.3 // indirect
 	k8s.io/api v0.21.2
 	k8s.io/apimachinery v0.21.2
 	k8s.io/client-go v0.21.2
-	k8s.io/klog v0.2.0 // indirect
 	k8s.io/kubernetes v0.21.2
 	sigs.k8s.io/controller-runtime v0.9.2
-	sigs.k8s.io/controller-tools v0.6.1 // indirect
 )
 
 replace (
