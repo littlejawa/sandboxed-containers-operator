@@ -1,7 +1,7 @@
 # Use OpenShift golang builder image
 # These images needs to be synced with the images in the Makefile.
 ARG BUILDER_IMAGE=${BUILDER_IMAGE:-registry.access.redhat.com/ubi9/go-toolset:1.22.7-1733160835}
-ARG TARGET_IMAGE=${TARGET_IMAGE:-registry.access.redhat.com/ubi9/ubi-micro}
+ARG TARGET_IMAGE=${TARGET_IMAGE:-registry.access.redhat.com/ubi9/ubi-minimal:latest}
 FROM ${BUILDER_IMAGE} AS builder
 
 WORKDIR /workspace
