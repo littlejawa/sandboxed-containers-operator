@@ -15,7 +15,7 @@ require (
 	github.com/openshift/machine-config-operator v0.0.1-0.20220823105933-c65f84719c61
 	github.com/prometheus/client_golang v1.20.5
 	github.com/spf13/cobra v1.8.0
-	go.uber.org/zap v1.26.0
+	go.uber.org/zap v1.27.0
 	k8s.io/api v0.29.3
 	k8s.io/apimachinery v0.29.3
 	k8s.io/client-go v0.29.3
