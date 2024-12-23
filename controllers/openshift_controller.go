@@ -25,8 +25,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/confidential-containers/cloud-api-adaptor/src/peerpodconfig-ctrl/api/v1alpha1"
-
 	appsv1 "k8s.io/api/apps/v1"
 
 	"k8s.io/apimachinery/pkg/labels"
@@ -489,7 +487,7 @@ func (r *KataConfigOpenShiftReconciler) newMCPforCR() *mcfgv1.MachineConfigPool 
 	return mcp
 }
 
-func (r *KataConfigOpenShiftReconciler) getExtensionName()  string {
+func (r *KataConfigOpenShiftReconciler) getExtensionName() string {
 	// RHCOS uses "sandboxed-containers" as thats resolved/translated in the machine-config-operator to "kata-containers"
 	// FCOS however does not get any translation in the machine-config-operator so we need to
 	// send in "kata-containers".
@@ -498,7 +496,7 @@ func (r *KataConfigOpenShiftReconciler) getExtensionName()  string {
 	clusterVersion := &configv1.ClusterVersion{}
 	r.Client.Get(context.TODO(), types.NamespacedName{Name: "version"}, clusterVersion)
 
-	if strings.HasPrefix(clusterVersion.Status.Desired.Image, "quay.io/openshift-release-dev/ocp-release"){
+	if strings.HasPrefix(clusterVersion.Status.Desired.Image, "quay.io/openshift-release-dev/ocp-release") {
 		return "sandboxed-containers" // RHCOS
 	}
 
@@ -2249,28 +2247,8 @@ func (r *KataConfigOpenShiftReconciler) enablePeerPodsMc() error {
 
 // Create the PeerPodConfig CRDs and misc configs required for peer-pods
 func (r *KataConfigOpenShiftReconciler) enablePeerPodsMiscConfigs() error {
-	peerPodConfig := v1alpha1.PeerPodConfig{
-		TypeMeta: metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      peerpodConfigCrdName,
-			Namespace: OperatorNamespace,
-		},
-		Spec: v1alpha1.PeerPodConfigSpec{
-			CloudSecretName: "peer-pods-secret",
-			ConfigMapName:   "peer-pods-cm",
-			Limit:           DEFAULT_PEER_PODS,
-			NodeSelector:    r.getNodeSelectorAsMap(),
-		},
-	}
-
-	err := r.Client.Create(context.TODO(), &peerPodConfig)
-	if err != nil && !k8serrors.IsAlreadyExists(err) {
-		r.Log.Info("Error in creating peerpodconfig", "err", err)
-		return err
-	}
-
 	// Create the mutating webhook deployment
-	err = r.createMutatingWebhookDeployment()
+	err := r.createMutatingWebhookDeployment()
 	if err != nil {
 		r.Log.Info("Error in creating mutating webhook deployment for peerpods", "err", err)
 		return err
@@ -2300,19 +2278,6 @@ func (r *KataConfigOpenShiftReconciler) enablePeerPodsMiscConfigs() error {
 }
 
 func (r *KataConfigOpenShiftReconciler) disablePeerPods() error {
-	peerPodConfig := v1alpha1.PeerPodConfig{
-		TypeMeta: metav1.TypeMeta{},
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      peerpodConfigCrdName,
-			Namespace: OperatorNamespace,
-		},
-	}
-	err := r.Client.Delete(context.TODO(), &peerPodConfig)
-	if err != nil {
-		// error during removing peerpodconfig. Just log the error and move on.
-		r.Log.Info("Error found deleting PeerPodConfig. If the PeerPodConfig object exists after uninstallation it can be safely deleted manually", "err", err)
-	}
-
 	mc := mcfgv1.MachineConfig{
 		TypeMeta: metav1.TypeMeta{
 			APIVersion: "machineconfiguration.openshift.io/v1",
@@ -2323,7 +2288,7 @@ func (r *KataConfigOpenShiftReconciler) disablePeerPods() error {
 		},
 	}
 
-	err = r.Client.Delete(context.TODO(), &mc)
+	err := r.Client.Delete(context.TODO(), &mc)
 	if err != nil {
 		// error during removing mc. Just log the error and move on.
 		r.Log.Info("Error found deleting mc. If the MachineConfig object exists after uninstallation it can be safely deleted manually",
