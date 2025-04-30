@@ -29,6 +29,11 @@ ADD lib.sh libvirt-podvm-image-handler.sh aws-podvm-image-handler.sh azure-podvm
 RUN mkdir -p /scripts/bootc
 ADD bootc/config.toml /scripts/bootc/
 
+RUN cat /cachi2/cachi2.env
+RUN ls -alF $GOCACHE/pkg/mod/cache
+RUN ls -alF $GOMODCACHE/cache/download/github.com/openshift/cloud-api-adaptor/\@v
+
+
 # TODO: Since this installation applies to all providers, consider renaming the
 # script or moving the generic RPMS installation elsewhere for better clarity.
 RUN /scripts/azure-podvm-image-handler.sh -- install_rpms
@@ -47,7 +52,13 @@ RUN if [[ -n "$CERT_RPM" ]] ; then \
     fi
 
 
-RUN git clone ${CAA_SRC} -b ${CAA_REF} /src/cloud-api-adaptor
+#RUN git clone ${CAA_SRC} -b ${CAA_REF} /src/cloud-api-adaptor
+WORKDIR /src
+RUN unzip $GOMODCACHE/cache/download/github.com/openshift/cloud-api-adaptor/\@v/*.zip
+RUN mv github.com/openshift/cloud-api-adaptor*/ cloud-api-adaptor
+RUN rm -rf github.com
+RUN ls -alF
+RUN ls -alF cloud-api-adaptor
 
 ADD podvm-builder.sh /podvm-builder.sh
 
